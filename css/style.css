@@ -1,0 +1,358 @@
+/* ============================================================
+   rejection — official site
+   Minimal / Brutalist / Industrial
+   ============================================================ */
+
+:root {
+  --bg: #DEDEDE;
+  --ink: #212020;
+  --white: #FFFFFF;
+  --header-h: 140px;
+  --header-h-mobile: 72px;
+  --maxw: 1400px;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Epilogue", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+img { display: block; max-width: 100%; }
+
+/* ---------------- Header ---------------- */
+.site-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--header-h);
+  background: var(--bg);
+  z-index: 1000;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 0 40px;
+  gap: 24px;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  justify-self: start;
+}
+
+.nav-left a {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  padding: 4px 0;
+  border-bottom: 1px solid transparent;
+  transition: border-color .18s ease;
+}
+.nav-left a:hover { border-bottom-color: var(--ink); }
+
+.brand {
+  justify-self: center;
+  display: flex;
+  align-items: center;
+}
+.brand img { height: 46px; width: auto; }
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  justify-self: end;
+}
+.nav-right a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+  opacity: 0.9;
+  transition: opacity .18s ease, transform .18s ease;
+}
+.nav-right a:hover { opacity: 1; transform: translateY(-1px); }
+.nav-right svg { width: 22px; height: 22px; fill: currentColor; display: block; }
+
+/* Hamburger (mobile only) */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  color: var(--ink);
+  justify-self: start;
+}
+.nav-toggle span {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background: var(--ink);
+  margin: 5px 0;
+  transition: transform .2s ease, opacity .2s ease;
+}
+
+/* Page body offset for fixed header */
+.page { padding-top: var(--header-h); }
+
+/* ---------------- Full-bleed sections ---------------- */
+.fullbleed {
+  position: relative;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fullbleed::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.32);
+  z-index: 0;
+}
+.fullbleed > * { position: relative; z-index: 1; }
+
+.hero { min-height: calc(90vh - var(--header-h)); }
+.hero::before { background: rgba(0,0,0,0.28); }
+
+.section-links {
+  min-height: 62vh;
+  padding: 80px 24px;
+}
+.section-links::before { background: rgba(0,0,0,0.40); }
+
+.section-bio {
+  min-height: 80vh;
+  padding: 100px 24px;
+}
+.section-bio::before { background: rgba(0,0,0,0.55); }
+
+/* ---------------- Pill buttons ---------------- */
+.pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+.pill {
+  display: inline-block;
+  background: var(--ink);
+  color: var(--white);
+  font-family: "Epilogue", sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 2px solid var(--white);
+  border-radius: 300px;
+  padding: 16px 34px;
+  transition: background .2s ease, color .2s ease;
+  white-space: nowrap;
+}
+.pill:hover { background: var(--white); color: var(--ink); }
+
+/* Dark pill on light bg (for tour page) */
+.pill--onlight { border-color: var(--ink); }
+.pill--onlight:hover { background: var(--bg); color: var(--ink); }
+
+/* ---------------- BIO / CONTACT ---------------- */
+.bio-inner {
+  max-width: 640px;
+  text-align: center;
+  color: var(--white);
+}
+.section-heading {
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--white);
+  letter-spacing: 0.03em;
+  line-height: 1;
+  font-size: clamp(48px, 9vw, 88px);
+  margin: 0 0 28px;
+}
+.bio-text {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--white);
+  margin: 0 auto 18px;
+}
+.bio-text--ja {
+  font-size: 13.5px;
+  line-height: 1.9;
+  color: rgba(255,255,255,0.72);
+  max-width: 560px;
+}
+.contact-block {
+  margin-top: 64px;
+}
+.contact-block .section-heading { font-size: clamp(40px, 7vw, 68px); margin-bottom: 16px; }
+.contact-line {
+  font-size: 16px;
+  letter-spacing: 0.04em;
+  color: var(--white);
+}
+.contact-line a { border-bottom: 1px solid rgba(255,255,255,0.5); }
+.contact-line a:hover { border-bottom-color: var(--white); }
+
+/* ---------------- Footer ---------------- */
+.site-footer {
+  background: var(--bg);
+  color: var(--ink);
+  text-align: center;
+  padding: 40px 24px;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+/* ---------------- Music page ---------------- */
+.music-wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 64px 40px 96px;
+}
+.page-title {
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: clamp(44px, 8vw, 84px);
+  letter-spacing: 0.03em;
+  margin: 0 0 48px;
+  color: var(--ink);
+}
+.release-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px 32px;
+}
+.release {
+  display: block;
+  transition: transform .2s ease;
+}
+.release:hover { transform: translateY(-4px); }
+.release .cover {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background: #c9c9c9;
+}
+.release .title {
+  margin-top: 12px;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--ink);
+  letter-spacing: 0.01em;
+}
+
+/* ---------------- Tour page ---------------- */
+.tour-wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 64px 40px 96px;
+  text-align: center;
+}
+.tour-wrap .page-title { text-align: center; }
+.tickets-cta { margin: 8px 0 56px; }
+.bit-widget-holder {
+  text-align: left;
+  min-height: 200px;
+}
+.tour-fallback {
+  margin-top: 32px;
+  font-size: 15px;
+}
+.tour-fallback a { border-bottom: 1px solid var(--ink); }
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+.mobile-panel { display: none; }
+
+@media (max-width: 860px) {
+  :root { --header-h: var(--header-h-mobile); }
+
+  .site-header {
+    grid-template-columns: 1fr auto 1fr;
+    padding: 0 18px;
+    gap: 8px;
+    height: var(--header-h-mobile);
+  }
+  .brand img { height: 34px; }
+
+  /* Hide the desktop inline nav + socials on mobile */
+  .nav-left, .nav-right { display: none; }
+
+  /* Show hamburger */
+  .nav-toggle { display: block; }
+
+  /* Mobile dropdown panel */
+  .mobile-panel {
+    position: fixed;
+    top: var(--header-h-mobile);
+    left: 0; right: 0;
+    background: var(--bg);
+    border-top: 1px solid rgba(33,32,32,0.12);
+    padding: 28px 24px 32px;
+    z-index: 999;
+    flex-direction: column;
+    align-items: center;
+    gap: 26px;
+    max-height: 0;
+    overflow: hidden;
+    padding-top: 0; padding-bottom: 0;
+    transition: max-height .28s ease, padding .28s ease;
+  }
+  body.nav-open .mobile-panel {
+    display: flex;
+    max-height: 340px;
+    padding-top: 28px;
+    padding-bottom: 32px;
+  }
+  .mobile-panel .mp-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .mobile-panel .mp-links a { font-size: 20px; letter-spacing: 0.02em; }
+  .mobile-panel .mp-social {
+    display: flex;
+    gap: 22px;
+    align-items: center;
+  }
+  .mobile-panel .mp-social a { color: var(--ink); }
+  .mobile-panel .mp-social svg { width: 24px; height: 24px; fill: currentColor; }
+
+  /* hamburger open state */
+  body.nav-open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  body.nav-open .nav-toggle span:nth-child(2) { opacity: 0; }
+  body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .page { padding-top: var(--header-h-mobile); }
+
+  .pill-row { flex-direction: column; }
+  .pill { width: 100%; max-width: 320px; text-align: center; }
+
+  .music-wrap { padding: 40px 20px 72px; }
+  .release-grid { grid-template-columns: 1fr; gap: 32px; }
+  .tour-wrap { padding: 40px 20px 72px; }
+  .section-heading { font-size: clamp(44px, 13vw, 72px); }
+}
