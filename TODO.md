@@ -40,5 +40,5 @@
       アーティストページで全ディスコグラフィを確認して追補する
 - [ ] Bandsintown 登録公演の最新化(現状: 2026-07-25 Yokohama / 2026-08-15 IV AKIHABARA / 2026-08-28 Seoul)
 - [ ] music.htmlのアートワーク/リンクをSubmitHubスマートリンクに差し替え(別セッションで対応予定)
-- [ ] 本人判断待ち: Nothing To Lose / HANDS UPを新ルールの3リンク構成(YouTube Music追加)に作り直すか
-- [ ] 本人判断待ち: On The RoadがYouTube Music配信開始したらリンク追加
+- [x] ~~本人判断待ち: Nothing To Lose / HANDS UPを新ルールの3リンク構成(YouTube Music追加)に作り直すか~~ → 2026-07-24本人判断: 既存リンクのまま維持でよい、作り直し不要
+- [x] ~~本人判断待ち: On The RoadがYouTube Music配信開始したらリンク追加~~ → 2026-07-24本人判断: Spotify+Apple Musicの2リンクで確定。YouTube Music配信開始時のみ改めて追加を検討
